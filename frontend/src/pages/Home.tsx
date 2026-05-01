@@ -74,7 +74,7 @@ export default function Home() {
         <Grid item xs={6} md={3}>
           <Kpi
             title="Big Rocks"
-            value={stats?.big_rocks_at_risk ?? '—'}
+            value={stats?.big_rocks_total ?? '—'}
             color="error.main"
             to="/big-rocks"
           />
