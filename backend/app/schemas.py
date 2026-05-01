@@ -111,7 +111,6 @@ class WeeklyTaskOut(WeeklyTaskBase):
 
 
 class CopyWeekRequest(BaseModel):
-    owner_id: int
     from_week: date
     to_week: date
 

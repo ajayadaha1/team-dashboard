@@ -145,13 +145,12 @@ async def copy_week(
     user: str = Depends(current_user),
     session: AsyncSession = Depends(get_async_session),
 ):
-    """Clone a person's tasks from one week into another. Status reset to Planned."""
+    """Clone all tasks from one week into another. Status reset to Planned."""
     from_w = _monday(payload.from_week)
     to_w = _monday(payload.to_week)
     src = (
         await session.execute(
             select(WeeklyTask).where(
-                WeeklyTask.owner_id == payload.owner_id,
                 WeeklyTask.week_start == from_w,
             )
         )

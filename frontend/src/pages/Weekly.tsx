@@ -1,9 +1,7 @@
-import { useCallback, useEffect, useMemo, useRef, useState, type SetStateAction } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   Box,
   Button,
-  MenuItem,
-  Select,
   Stack,
   Typography,
 } from '@mui/material';
@@ -45,7 +43,7 @@ export default function Weekly() {
   const [exportOpen, setExportOpen] = useState(false);
   const [manageColsOpen, setManageColsOpen] = useState(false);
   const [customCols, setCustomCols] = useState<CustomColumn[]>([]);
-  const [copyFromOwner, setCopyFromOwner] = useState<number | ''>('');
+  const [copyFromWeek, setCopyFromWeek] = useState<Dayjs | null>(null);
   const [savedRowId, setSavedRowId] = useState<number | null>(null);
   const [remoteUpdatedRowId, setRemoteUpdatedRowId] = useState<number | null>(null);
   const currentUser = useUserStore((s) => s.currentUser);
@@ -208,11 +206,10 @@ export default function Weekly() {
     setRows((r) => r.filter((x) => x.id !== id));
   };
 
-  const copyLastWeek = async () => {
-    if (!copyFromOwner) return;
-    const from = week.subtract(7, 'day').format('YYYY-MM-DD');
+  const copyWeek = async () => {
+    if (!copyFromWeek) return;
+    const from = mondayOf(copyFromWeek).format('YYYY-MM-DD');
     await api.post('/weekly-tasks/copy-week', {
-      owner_id: copyFromOwner,
       from_week: from,
       to_week: weekIso,
     });
@@ -296,22 +293,16 @@ export default function Weekly() {
           onChange={(v) => v && setWeek(mondayOf(v))}
           slotProps={{ textField: { size: 'small' } }}
         />
-        <Select
-          size="small"
-          displayEmpty
-          value={copyFromOwner}
-          onChange={(e) => setCopyFromOwner(e.target.value as any)}
-          sx={{ minWidth: 180 }}
-        >
-          <MenuItem value=""><em>Copy last week for…</em></MenuItem>
-          {members.map((m) => (
-            <MenuItem key={m.id} value={m.id}>{m.name}</MenuItem>
-          ))}
-        </Select>
+        <DatePicker
+          label="Copy from week"
+          value={copyFromWeek}
+          onChange={(v) => setCopyFromWeek(v)}
+          slotProps={{ textField: { size: 'small' } }}
+        />
         <Button
           startIcon={<ContentCopyIcon />}
-          disabled={!copyFromOwner}
-          onClick={copyLastWeek}
+          disabled={!copyFromWeek}
+          onClick={copyWeek}
         >
           Copy
         </Button>
