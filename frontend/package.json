@@ -1,0 +1,46 @@
+{
+  "name": "team-dashboard-frontend",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.3",
+    "@mui/material": "^5.15.5",
+    "@mui/icons-material": "^5.15.5",
+    "@mui/x-data-grid": "^6.19.0",
+    "@mui/x-date-pickers": "^6.19.0",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "axios": "^1.6.5",
+    "dayjs": "^1.11.10",
+    "zustand": "^4.5.0",
+    "@tiptap/react": "^2.6.0",
+    "@tiptap/starter-kit": "^2.6.0",
+    "@tiptap/pm": "^2.6.0",
+    "@tiptap/extension-underline": "^2.6.0",
+    "@tiptap/extension-text-align": "^2.6.0",
+    "@tiptap/extension-color": "^2.6.0",
+    "@tiptap/extension-text-style": "^2.6.0",
+    "@tiptap/extension-image": "^2.6.0",
+    "@tiptap/extension-link": "^2.6.0",
+    "@tiptap/extension-table": "^2.6.0",
+    "@tiptap/extension-table-row": "^2.6.0",
+    "@tiptap/extension-table-cell": "^2.6.0",
+    "@tiptap/extension-table-header": "^2.6.0",
+    "@tiptap/extension-heading": "^2.6.0",
+    "@tiptap/extension-highlight": "^2.6.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
+    "@vitejs/plugin-react": "^4.2.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.12"
+  }
+}

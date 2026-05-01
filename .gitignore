@@ -1,0 +1,21 @@
+# Dependencies
+frontend/node_modules/
+
+# Build outputs
+frontend/dist/
+
+# Python
+backend/__pycache__/
+backend/app/__pycache__/
+backend/app/routers/__pycache__/
+*.pyc
+
+# Environment
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# Tool storage
+.cline_storage/
