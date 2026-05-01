@@ -25,7 +25,7 @@ const NAV = [
   { to: '/big-rocks', label: 'Big Rocks' },
   { to: '/weekly', label: 'Weekly' },
   { to: '/interrupts', label: 'Interrupts' },
-  { to: '/team', label: 'Team' },
+  // { to: '/team', label: 'Team' },
   { to: '/export', label: 'Export' },
 ];
 
