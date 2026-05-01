@@ -82,7 +82,7 @@ export default function Home() {
         </Grid>
         <Grid item xs={6} md={4}>
           <Kpi
-            title="Tasks"
+            title="Weekly Tasks"
             value={stats?.tasks_this_week ?? '—'}
             color="warning.main"
             to="/weekly"
@@ -129,10 +129,10 @@ export default function Home() {
           </Paper>
         </Grid>
 
-        {/* Current Tasks */}
+        {/* Weekly Tasks */}
         <Grid item xs={12} md={4}>
           <Paper sx={{ p: 2, height: '100%' }}>
-            <Typography variant="h6" gutterBottom>Current Tasks</Typography>
+            <Typography variant="h6" gutterBottom>Weekly Tasks</Typography>
             {tasks.length === 0 && (
               <Typography color="text.secondary">No tasks logged yet for this week.</Typography>
             )}
