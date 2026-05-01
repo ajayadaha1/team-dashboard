@@ -26,6 +26,9 @@ TABLE_MAP = {
 def _serialize(value):
     if isinstance(value, (datetime, date)):
         return value.isoformat()
+    if isinstance(value, (dict, list)):
+        import json
+        return json.dumps(value, default=str)
     return value
 
 
