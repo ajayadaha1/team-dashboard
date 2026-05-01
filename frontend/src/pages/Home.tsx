@@ -81,16 +81,16 @@ export default function Home() {
         </Grid>
         <Grid item xs={6} md={3}>
           <Kpi
-            title="Tasks blocked (this week)"
-            value={stats?.tasks_blocked ?? '—'}
+            title="Tasks"
+            value={stats?.tasks_this_week ?? '—'}
             color="warning.main"
             to="/weekly"
           />
         </Grid>
         <Grid item xs={6} md={3}>
           <Kpi
-            title="Open Sev1/2 interrupts"
-            value={stats?.interrupts_sev1_or_2_open ?? '—'}
+            title="Interrupts"
+            value={stats?.interrupts_open ?? '—'}
             color="error.main"
             to="/interrupts"
           />
